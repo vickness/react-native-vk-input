@@ -8,24 +8,95 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View, SafeAreaView} from 'react-native';
+import Input from "./lib/src";
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
+const pwdIcon1 = require("./src/icon-login-1-n.png");
+const pwdIcon2 = require("./src/icon-login-1-s.png");
+const usmIcon1 = require("./src/icon-login-2-n.png");
+const usmIcon2 = require("./src/icon-login-2-s.png");
+const eyeIcon1 = require("./src/icon-login-4-s.png");
 
 type Props = {};
 export default class App extends Component<Props> {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
-      </View>
+      <SafeAreaView style={{flex: 1, backgroundColor: 'white'}}>
+          <View style={styles.container}>
+              <Input
+                  viewStyle={styles.input}
+                  placeholder={"请输入文字内容(纯字母)"}
+                  regex={/[^A-z]/}
+                  onChangeText={text => {console.log("test: " + text)}}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.input}
+                  leftView={usmIcon1}
+                  placeholder={"请输入用户名"}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.input}
+                  leftView={pwdIcon1}
+                  rightView={eyeIcon1}
+                  placeholder={"请输入密码"}
+                  onPressRight={() => {}}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.input}
+                  leftView={"账号:"}
+                  placeholder={"请输入文字内容"}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.input}
+                  leftView={"密码:"}
+                  rightView={eyeIcon1}
+                  placeholder={"请输入文字内容"}
+                  onPressRight={() => {}}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.input}
+                  leftView={"请选择城市:"}
+                  placeholder={"请输入文字内容"}
+                  onPressLeft={() => {alert("确定")}}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.input}
+                  rightView={"获取验证码"}
+                  placeholder={"请输入验证码(纯数字)"}
+                  regex={/[^0-9]/}
+                  onPressRight={() => {alert("确定")}}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.borderInput}
+                  placeholder={"请输入文字内容"}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.borderInput}
+                  leftView={usmIcon1}
+                  placeholder={"请输入用户名"}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.lineInput}
+                  inputStyle={{marginHorizontal: 0}}
+                  placeholder={"请输入文字内容"}
+              />
+              <View style={{height: 10}}/>
+              <Input
+                  viewStyle={styles.lineInput}
+                  leftView={usmIcon1}
+                  placeholder={"请输入文字内容"}
+              />
+          </View>
+      </SafeAreaView>
     );
   }
 }
@@ -33,18 +104,27 @@ export default class App extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: 'white',
+      padding: 20
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  input: {
+      height: 40,
+      width: 300,
+      backgroundColor: '#eee'
   },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    borderInput: {
+        height: 45,
+        width: 300,
+        borderColor: '#ccc',
+        borderWidth: 1.5,
+        borderRadius: 6,
+    },
+    lineInput: {
+        height: 40,
+        width: 300,
+        borderBottomWidth: 1.5,
+        borderBottomColor: '#ccc',
+        padding: 0
+    }
 });
