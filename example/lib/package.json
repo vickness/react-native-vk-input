@@ -1,14 +1,14 @@
 {
-  "name": "react-native-vk-button",
+  "name": "react-native-vk-input",
   "version": "1.0.0",
-  "description": "React Native button component",
+  "description": "React Native TextInput component",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vickness/react-native-vk-button.git"
+    "url": "git+https://github.com/vickness/react-native-vk-input.git"
   },
   "keywords": [
     "js",
@@ -17,14 +17,15 @@
     "rn",
     "nework",
     "http",
-    "button"
+    "input",
+    "textInput",
   ],
   "author": "Vick",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/vickness/react-native-vk-button/issues"
+    "url": "https://github.com/vickness/react-native-vk-input/issues"
   },
-  "homepage": "https://github.com/vickness/react-native-vk-button#readme",
+  "homepage": "https://github.com/vickness/react-native-vk-input#readme",
   "dependencies": {
     "prop-types": "^15.6.2"
   }
